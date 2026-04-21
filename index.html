@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spring Framework – Einführung</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ── PROGRESS BAR ───────────────────────────────────────── -->
+  <div class="progress-bar-wrap">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- ── SLIDE COUNTER ─────────────────────────────────────── -->
+  <div class="slide-counter" id="slideCounter">1 / 10</div>
+
+  <!-- ── PRESENTATION WRAPPER ─────────────────────────────── -->
+  <main class="presentation" id="presentation">
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 1 – TITLE
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--title active" data-slide="1">
+      <div class="slide__bg-accent"></div>
+      <div class="slide__content title-content">
+        <div class="leaf-icon animate-pop">🍃</div>
+        <h1 class="animate-up">Spring Framework</h1>
+        <p class="subtitle animate-up delay-1">Java – für Einsteiger verständlich</p>
+        <div class="title-meta animate-up delay-2">
+          <span class="badge">⏱ 10 Minuten</span>
+          <span class="badge">🔰 Anfänger</span>
+          <span class="badge">💡 Praxisbeispiele</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 2 – AGENDA
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--agenda" data-slide="2">
+      <div class="slide__content">
+        <h2 class="slide-title animate-up">Agenda</h2>
+        <div class="agenda-grid">
+          <div class="agenda-item animate-card" style="--i:0">
+            <span class="agenda-num">01</span>
+            <div><strong>Was ist Spring?</strong><small>0:30 min</small></div>
+          </div>
+          <div class="agenda-item animate-card" style="--i:1">
+            <span class="agenda-num">02</span>
+            <div><strong>Inversion of Control</strong><small>1:30 min</small></div>
+          </div>
+          <div class="agenda-item animate-card" style="--i:2">
+            <span class="agenda-num">03</span>
+            <div><strong>Dependency Injection</strong><small>2:00 min</small></div>
+          </div>
+          <div class="agenda-item animate-card" style="--i:3">
+            <span class="agenda-num">04</span>
+            <div><strong>Container &amp; Beans</strong><small>1:30 min</small></div>
+          </div>
+          <div class="agenda-item animate-card" style="--i:4">
+            <span class="agenda-num">05</span>
+            <div><strong>Spring Boot</strong><small>1:30 min</small></div>
+          </div>
+          <div class="agenda-item animate-card" style="--i:5">
+            <span class="agenda-num">06</span>
+            <div><strong>REST Controller</strong><small>1:30 min</small></div>
+          </div>
+          <div class="agenda-item animate-card" style="--i:6">
+            <span class="agenda-num">07</span>
+            <div><strong>Architektur</strong><small>1:00 min</small></div>
+          </div>
+          <div class="agenda-item animate-card" style="--i:7">
+            <span class="agenda-num">08</span>
+            <div><strong>Zusammenfassung</strong><small>0:30 min</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 3 – WAS IST SPRING?
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--two-col" data-slide="3">
+      <div class="slide__content">
+        <h2 class="slide-title animate-up">Was ist Spring?</h2>
+        <div class="two-col">
+          <ul class="fact-list">
+            <li class="animate-card" style="--i:0">🍃 Open-Source Java-Framework <em>(seit 2002)</em></li>
+            <li class="animate-card" style="--i:1">🏗️ Hilft beim Bauen von großen Anwendungen</li>
+            <li class="animate-card" style="--i:2">🔧 Macht viele Dinge automatisch – du schreibst weniger Code</li>
+            <li class="animate-card" style="--i:3">🌍 Weltweit das <strong>#1 Framework</strong> für Java-Backends</li>
+            <li class="animate-card" style="--i:4">🚀 Basis für Spring Boot, MVC, Security &amp; mehr</li>
+          </ul>
+          <div class="metaphor-box animate-card" style="--i:2">
+            <div class="metaphor-icon">💡</div>
+            <h3>Metapher</h3>
+            <p>Spring ist wie ein <strong>erfahrener Assistent</strong>: Du sagst, was du brauchst – Spring sorgt dafür, dass alles bereitsteht.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 4 – INVERSION OF CONTROL
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--ioc" data-slide="4">
+      <div class="slide__content">
+        <h2 class="slide-title animate-up">Inversion of Control <span class="tag">IoC</span></h2>
+        <p class="slide-subtitle animate-up delay-1">Wer hat die Kontrolle?</p>
+        <div class="compare-grid">
+          <div class="compare-card compare-card--bad animate-card" style="--i:0">
+            <div class="compare-header">❌ Ohne Spring</div>
+            <pre class="code-block"><code>Car car = new Car();
+Engine e = new Engine();
+car.setEngine(e);
+
+// Du steuerst alles</code></pre>
+            <p class="compare-note">Du erzeugst jedes Objekt von Hand</p>
+          </div>
+          <div class="compare-arrow animate-card" style="--i:1">→</div>
+          <div class="compare-card compare-card--good animate-card" style="--i:2">
+            <div class="compare-header">✅ Mit Spring (IoC)</div>
+            <pre class="code-block"><code>@Component
+class Car { ... }
+
+@Component
+class Engine { ... }
+
+// Spring steuert alles</code></pre>
+            <p class="compare-note">Spring übernimmt die Kontrolle</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 5 – DEPENDENCY INJECTION
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--two-col" data-slide="5">
+      <div class="slide__content">
+        <h2 class="slide-title animate-up">Dependency Injection <span class="tag">DI</span></h2>
+        <p class="slide-subtitle animate-up delay-1">Spring liefert dir, was du brauchst – automatisch!</p>
+        <div class="two-col">
+          <div class="code-window animate-card" style="--i:0">
+            <div class="code-window__bar"><span></span><span></span><span></span> CarService.java</div>
+            <pre class="code-block code-block--lg"><code><span class="kw">@Service</span>
+<span class="kw2">public class</span> CarService {
+
+  <span class="comment">// Spring injiziert automatisch ↓</span>
+  <span class="kw">@Autowired</span>
+  <span class="kw2">private</span> EmailService emailService;
+
+  <span class="kw2">public void</span> buyCar(Car car) {
+    <span class="comment">// einfach benutzen!</span>
+    emailService.sendConfirmation(car);
+  }
+}</code></pre>
+          </div>
+          <div class="annotation-list">
+            <div class="annotation animate-card" style="--i:1">
+              <code class="inline-code">@Service</code>
+              <p>Markiert eine Klasse als Spring-Dienst</p>
+            </div>
+            <div class="annotation animate-card" style="--i:2">
+              <code class="inline-code">@Autowired</code>
+              <p>Spring sucht &amp; injiziert die Abhängigkeit</p>
+            </div>
+            <div class="annotation animate-card" style="--i:3">
+              <code class="inline-code">Kein new!</code>
+              <p>Du erzeugst keine Objekte per Hand mehr</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 6 – SPRING CONTAINER & BEANS
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--container" data-slide="6">
+      <div class="slide__content">
+        <h2 class="slide-title animate-up">Spring Container &amp; Beans</h2>
+        <p class="slide-subtitle animate-up delay-1">Das Herz von Spring</p>
+        <div class="container-diagram animate-card" style="--i:0">
+          <div class="container-label">🏭 Spring Container (ApplicationContext)</div>
+          <div class="beans-grid">
+            <div class="bean bean--green animate-card" style="--i:1">Bean:<br>CarService</div>
+            <div class="bean bean--teal animate-card" style="--i:2">Bean:<br>EmailService</div>
+            <div class="bean bean--purple animate-card" style="--i:3">Bean:<br>UserRepo</div>
+            <div class="bean bean--orange animate-card" style="--i:4">Bean:<br>Config</div>
+          </div>
+        </div>
+        <div class="flow-hint animate-card" style="--i:5">
+          <span class="flow-box">Dein Code</span>
+          <span class="flow-arrow">→ @Autowired →</span>
+          <span class="flow-box flow-box--accent">Spring gibt Bean zurück</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 7 – SPRING BOOT
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--two-col" data-slide="7">
+      <div class="slide__content">
+        <h2 class="slide-title animate-up">Spring Boot 🚀</h2>
+        <p class="slide-subtitle animate-up delay-1">Spring – aber 10× schneller zum Ziel</p>
+        <div class="two-col">
+          <div class="code-window animate-card" style="--i:0">
+            <div class="code-window__bar"><span></span><span></span><span></span> MyApp.java</div>
+            <pre class="code-block code-block--lg"><code><span class="kw">@SpringBootApplication</span>
+<span class="kw2">public class</span> MyApp {
+
+  <span class="kw2">public static void</span> main(
+        String[] args) {
+
+    SpringApplication.run(
+        MyApp.class, args);
+  }
+}
+
+<span class="comment">// Das ist ALLES!
+// Spring startet automatisch:
+// ✓ Webserver (Tomcat)
+// ✓ Datenbank-Anbindung
+// ✓ Alle Beans &amp; Config</span></code></pre>
+          </div>
+          <div class="feature-list">
+            <div class="feature animate-card" style="--i:1">
+              <span class="feature-icon">🚀</span>
+              <div><strong>Auto-Config</strong><p>Konfiguriert sich selbst – kein XML mehr</p></div>
+            </div>
+            <div class="feature animate-card" style="--i:2">
+              <span class="feature-icon">📦</span>
+              <div><strong>Starter-Pakete</strong><p>Alles für Webserver, DB etc. in einem</p></div>
+            </div>
+            <div class="feature animate-card" style="--i:3">
+              <span class="feature-icon">🔌</span>
+              <div><strong>Eingebetteter Server</strong><p>Tomcat läuft direkt in der App</p></div>
+            </div>
+            <div class="feature animate-card" style="--i:4">
+              <span class="feature-icon">⚡</span>
+              <div><strong>Sofort lauffähig</strong><p>Aus Idee in Minuten zur laufenden App</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 8 – REST CONTROLLER
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--two-col" data-slide="8">
+      <div class="slide__content">
+        <h2 class="slide-title animate-up">REST Controller</h2>
+        <p class="slide-subtitle animate-up delay-1">Deine App spricht mit der Welt – via HTTP</p>
+        <div class="two-col">
+          <div class="code-window animate-card" style="--i:0">
+            <div class="code-window__bar"><span></span><span></span><span></span> CarController.java</div>
+            <pre class="code-block code-block--lg"><code><span class="kw">@RestController</span>
+<span class="kw">@RequestMapping</span>("/api/cars")
+<span class="kw2">public class</span> CarController {
+
+  <span class="kw">@Autowired</span>
+  <span class="kw2">private</span> CarService carService;
+
+  <span class="comment">// GET /api/cars → alle Autos</span>
+  <span class="kw">@GetMapping</span>
+  <span class="kw2">public</span> List&lt;Car&gt; getAll() {
+    <span class="kw2">return</span> carService.findAll();
+  }
+
+  <span class="comment">// POST /api/cars → neues Auto</span>
+  <span class="kw">@PostMapping</span>
+  <span class="kw2">public</span> Car add(<span class="kw">@RequestBody</span> Car car) {
+    <span class="kw2">return</span> carService.save(car);
+  }
+}</code></pre>
+          </div>
+          <div class="http-methods">
+            <div class="http-method animate-card" style="--i:1; --mc: #22c55e">
+              <span class="method-badge" style="background:#22c55e">GET</span>
+              <span>Daten lesen</span>
+            </div>
+            <div class="http-method animate-card" style="--i:2; --mc: #3b82f6">
+              <span class="method-badge" style="background:#3b82f6">POST</span>
+              <span>Daten erstellen</span>
+            </div>
+            <div class="http-method animate-card" style="--i:3; --mc: #f59e0b">
+              <span class="method-badge" style="background:#f59e0b">PUT</span>
+              <span>Daten ändern</span>
+            </div>
+            <div class="http-method animate-card" style="--i:4; --mc: #ef4444">
+              <span class="method-badge" style="background:#ef4444">DELETE</span>
+              <span>Daten löschen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 9 – ARCHITEKTUR
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--arch" data-slide="9">
+      <div class="slide__content">
+        <h2 class="slide-title animate-up">Architektur einer Spring-App</h2>
+        <p class="slide-subtitle animate-up delay-1">Die typischen Schichten (Layers)</p>
+        <div class="arch-layers">
+          <div class="arch-layer animate-card" style="--i:0; --lc: #6db33f">
+            <span class="arch-icon">🌐</span>
+            <div class="arch-info">
+              <strong>Controller Layer</strong>
+              <code>@RestController</code>
+            </div>
+            <p>Nimmt HTTP-Anfragen entgegen</p>
+          </div>
+          <div class="arch-arrow animate-card" style="--i:1">↕</div>
+          <div class="arch-layer animate-card" style="--i:2; --lc: #48a999">
+            <span class="arch-icon">⚙️</span>
+            <div class="arch-info">
+              <strong>Service Layer</strong>
+              <code>@Service</code>
+            </div>
+            <p>Enthält die Geschäftslogik</p>
+          </div>
+          <div class="arch-arrow animate-card" style="--i:3">↕</div>
+          <div class="arch-layer animate-card" style="--i:4; --lc: #8b5cf6">
+            <span class="arch-icon">🗄️</span>
+            <div class="arch-info">
+              <strong>Repository Layer</strong>
+              <code>@Repository</code>
+            </div>
+            <p>Liest &amp; schreibt in die Datenbank</p>
+          </div>
+          <div class="arch-arrow animate-card" style="--i:5">↕</div>
+          <div class="arch-layer animate-card" style="--i:6; --lc: #f59e0b">
+            <span class="arch-icon">💾</span>
+            <div class="arch-info">
+              <strong>Datenbank</strong>
+              <code>MySQL / PostgreSQL / H2</code>
+            </div>
+            <p>Spring verbindet sich automatisch</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SLIDE 10 – ZUSAMMENFASSUNG
+    ═════════════════════════════════════════════════════════ -->
+    <section class="slide slide--summary" data-slide="10">
+      <div class="slide__bg-accent"></div>
+      <div class="slide__content">
+        <h2 class="slide-title animate-up">Zusammenfassung 🍃</h2>
+        <div class="summary-grid">
+          <div class="summary-card animate-card" style="--i:0">
+            <span class="summary-icon">🔄</span>
+            <div>
+              <strong>IoC</strong>
+              <p>Spring übernimmt die Kontrolle – du schreibst weniger Code</p>
+            </div>
+          </div>
+          <div class="summary-card animate-card" style="--i:1">
+            <span class="summary-icon">💉</span>
+            <div>
+              <strong>Dependency Injection</strong>
+              <p>@Autowired – Spring liefert Objekte automatisch</p>
+            </div>
+          </div>
+          <div class="summary-card animate-card" style="--i:2">
+            <span class="summary-icon">🏭</span>
+            <div>
+              <strong>Container &amp; Beans</strong>
+              <p>Verwaltet alle Objekte für dich</p>
+            </div>
+          </div>
+          <div class="summary-card animate-card" style="--i:3">
+            <span class="summary-icon">🚀</span>
+            <div>
+              <strong>Spring Boot</strong>
+              <p>Starte in Minuten – ohne komplexe Konfiguration</p>
+            </div>
+          </div>
+          <div class="summary-card animate-card" style="--i:4">
+            <span class="summary-icon">🌐</span>
+            <div>
+              <strong>REST Controller</strong>
+              <p>@RestController – deine App kommuniziert per HTTP</p>
+            </div>
+          </div>
+        </div>
+        <div class="cta animate-up delay-3">
+          🍃 Nächster Schritt: <a href="https://start.spring.io" target="_blank">start.spring.io</a> ausprobieren!
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /presentation -->
+
+  <!-- ── NAVIGATION ─────────────────────────────────────────── -->
+  <nav class="nav-controls">
+    <button class="nav-btn" id="prevBtn" aria-label="Vorherige Folie">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="dot-nav" id="dotNav"></div>
+    <button class="nav-btn" id="nextBtn" aria-label="Nächste Folie">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </nav>
+
+  <!-- ── SPEAKER NOTES TOGGLE ──────────────────────────────── -->
+  <button class="notes-toggle" id="notesToggle" title="Sprechernotizen">📝</button>
+  <div class="notes-panel" id="notesPanel">
+    <button class="notes-close" id="notesClose">✕</button>
+    <h4>Sprechernotizen</h4>
+    <p id="notesText"></p>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
