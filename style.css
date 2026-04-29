@@ -692,6 +692,14 @@ body {
   animation-delay: calc(.08s + var(--i, 0) * .07s);
 }
 
+.leaf-icon {
+  font-size: 3rem;
+}
+
+.slide--title .leaf-icon {
+  text-shadow: 0 0 20px rgba(124, 77, 255, 0.6);
+}
+
 /* ════════════════════════════════════════════════════════════
    RESPONSIVE
 ═════════════════════════════════════════════════════════ */
@@ -717,6 +725,7 @@ body {
   .arch-layer { flex-wrap: wrap; }
   .arch-layer p { width: 100%; margin-top: 4px; }
 }
+
 
 /* ── Scrollbar styling ───────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }

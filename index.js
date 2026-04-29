@@ -24,7 +24,19 @@ const NOTES = [
     // Slide 9
     "In einer gut strukturierten Spring-App gibt es drei Schichten: Der Controller empfängt Anfragen, der Service verarbeitet sie, und das Repository speichert oder liest Daten. Diese Trennung macht den Code übersichtlich und wartbar.",
     // Slide 10
-    "Herzlichen Glückwunsch – ihr kennt jetzt die wichtigsten Spring-Konzepte! Der beste nächste Schritt ist start.spring.io: dort könnt ihr in 2 Minuten ein neues Spring-Boot-Projekt generieren und direkt loslegen. Habt ihr noch Fragen?"
+    "Herzlichen Glückwunsch – ihr kennt jetzt die wichtigsten Spring-Konzepte! Der beste nächste Schritt ist start.spring.io: dort könnt ihr in 2 Minuten ein neues Spring-Boot-Projekt generieren und direkt loslegen. Habt ihr noch Fragen?",
+    // Slide 11
+    "Jetzt schauen wir uns Quarkus an – ein modernes Java-Framework, das speziell für Cloud und Microservices entwickelt wurde. Der Fokus liegt auf Geschwindigkeit, Effizienz und einfacher Entwicklung.",
+    // Slide 12
+    "Quarkus ist ein modernes Java-Framework von Red Hat. Es wurde speziell für Cloud und Microservices entwickelt. Der große Vorteil: Es startet extrem schnell und verbraucht sehr wenig Speicher.",
+    // Slide 13
+    "Quarkus wird vor allem in Cloud-Umgebungen eingesetzt. Wenn man viele kleine Services hat, ist Geschwindigkeit wichtig – genau da spielt Quarkus seine Stärken aus.",
+    // Slide 14
+    "Ein großer Unterschied zu Spring: Quarkus macht viele Optimierungen schon beim Build. Außerdem gibt es Live Reload und die Möglichkeit, Native Images zu erstellen.",
+    // Slide 15
+    "Spring ist der Standard – sehr mächtig und weit verbreitet. Quarkus dagegen ist moderner und schneller. Man könnte sagen: Spring für große Systeme, Quarkus für Cloud-native Apps.",
+    // Slide 16
+    "Vielen Dank fürs Zuhören! Ihr habt jetzt einen Überblick über Spring und Quarkus. Mein Tipp: Probiert beide Frameworks selbst aus – nur so bekommt man wirklich ein Gefühl dafür. Habt ihr noch Fragen?"
   ];
   
   // ── State ─────────────────────────────────────────────────────
