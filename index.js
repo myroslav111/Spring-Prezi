@@ -30,11 +30,11 @@ const NOTES = [
     // Slide 12
     "Quarkus ist ein modernes Java-Framework von Red Hat. Es wurde speziell für Cloud und Microservices entwickelt. Der große Vorteil: Es startet extrem schnell und verbraucht sehr wenig Speicher.",
     // Slide 13
-    "Quarkus wird vor allem in Cloud-Umgebungen eingesetzt. Wenn man viele kleine Services hat, ist Geschwindigkeit wichtig – genau da spielt Quarkus seine Stärken aus.",
+    "Quarkus wird vor allem in Cloud-Umgebungen eingesetzt. Wenn man viele kleine Services hat, ist Geschwindigkeit wichtig – genau da spielt Quarkus seine Stärken aus. Stell dir einen Online-Shop vor. Plötzlich kommen 100.000 Leute gleichzeitig. Du musst sofort 50 neue Instanzen deines Programms starten, um den Ansturm zu bewältigen. Warum Quarkus? Ein Spring-Programm würde vielleicht 10-20 Sekunden zum Hochfahren brauchen – bis dahin ist der Kunde weg. Quarkus startet in Millisekunden. Außerdem kostet jeder Megabyte Speicher in der Cloud (wie AWS oder Google Cloud) Geld. Da Quarkus viel schlanker ist, sparst du am Ende des Monats bares Geld bei der Server-Rechnung.",
     // Slide 14
     "Ein großer Unterschied zu Spring: Quarkus macht viele Optimierungen schon beim Build. Außerdem gibt es Live Reload und die Möglichkeit, Native Images zu erstellen.",
     // Slide 15
-    "Spring ist der Standard – sehr mächtig und weit verbreitet. Quarkus dagegen ist moderner und schneller. Man könnte sagen: Spring für große Systeme, Quarkus für Cloud-native Apps.",
+    "Spring ist der Standard – sehr mächtig und weit verbreitet. Quarkus dagegen ist moderner und schneller. Man könnte sagen: Spring für große Systeme, Quarkus für Cloud-native Apps. Bei Spring: Wenn du die App startest, scannt Spring erst jetzt dein ganzes Projekt durch: Wo sind die @RestController? Welche Datenbanken sind da?. Das kostet bei jedem Start Zeit und CPU-Kraft. Bei Quarkus: Dieser Scan passiert schon beim Bauen der Datei (während du noch tippst oder den build-Knopf drückst). Wenn du die App dann startest, weiß sie schon alles. Sie muss nur noch loslegen.",
     // Slide 16
     "Vielen Dank fürs Zuhören! Ihr habt jetzt einen Überblick über Spring und Quarkus. Mein Tipp: Probiert beide Frameworks selbst aus – nur so bekommt man wirklich ein Gefühl dafür. Habt ihr noch Fragen?"
   ];
